@@ -21,9 +21,10 @@ function startHereAPI() {
   
   let ui = H.ui.UI.createDefault(map, defaultLayers);
 
+  // Start and end point markers 
   function addMarkers(map){
     let startIcon = new H.map.Icon('https://cdn1.iconfinder.com/data/icons/common-version-3-0/1024/Truck-256.png', {size: {w:40, h:40}});
-    let finishIcon = new H.map.Icon('https://cdn4.iconfinder.com/data/icons/maps-and-navigation-38/32/Maps_and_Navigation_finish_flag_location-256.png', {size: {w:40, h:40}});
+    let finishIcon = new H.map.Icon('https://cdn4.iconfinder.com/data/icons/maps-and-navigation-38/32/Maps_and_Navigation_finish_flag_location-256.png', {size: {w:35, h:35}});
 
     let startMarker = new H.map.Marker({lat:-8.3678162, lng:-35.0315702}, { icon: startIcon });
     let endMarker = new H.map.Marker({lat:-23.1019916, lng:-46.9665265}, { icon: finishIcon });
@@ -32,7 +33,6 @@ function startHereAPI() {
   };
 
   // Right route information
-
     let routingParameters = {
       'routingMode': 'fast',
       'transportMode': 'truck',
@@ -69,7 +69,6 @@ function startHereAPI() {
       });
   
     // Truck routing
-
     function addPolylineToMap(map) {
       var lineString = new H.geo.LineString();
 
@@ -139,6 +138,7 @@ function startHereAPI() {
       stationData.forEach(data => {
         let stationIcon = new H.map.Icon('https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_local_gas_station_48px-256.png', {size: {w:30, h:30}});
         let stationMarker = new H.map.Marker({lat: data.lat, lng: data.lng}, { icon: stationIcon });
+        // Info bubbles
         const html = `<div class="station"><b>Nome do Posto:</b> ${data.posto}</div>` + 
         `<div class="city"><b>Cidade/UF:</b> ${data.cidade}</div>` + 
         `<div class="address"><b>Endereço:</b> ${data.endereco}</div>` +
