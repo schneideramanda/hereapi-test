@@ -138,10 +138,10 @@ function startHereAPI() {
     function addStationsMarkers(map) {
       stationData.forEach(data => {
         let stationMarker = new H.map.Marker({lat: data.lat, lng: data.lng});
-        const html = `<div><b>Nome do Posto:</b> ${data.posto}</div>` + 
-        `<div><b>Cidade/UF:</b> ${data.cidade}</div>` + 
-        `<div><b>Endereço:</b> ${data.endereco}</div>` +
-        `<div><b>Telefone:</b> ${data.fone}</div>`;
+        const html = `<div class="station"><b>Nome do Posto:</b> ${data.posto}</div>` + 
+        `<div class="city"><b>Cidade/UF:</b> ${data.cidade}</div>` + 
+        `<div class="address"><b>Endereço:</b> ${data.endereco}</div>` +
+        `<div class="phone"><b>Telefone:</b> ${data.fone}</div>`;
         stationMarker.setData(html)
         stationMarker.addEventListener("tap", function (evt) {
           const bubble = new H.ui.InfoBubble(evt.target.getGeometry(),
